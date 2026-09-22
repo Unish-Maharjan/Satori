@@ -39,6 +39,29 @@ export default function About() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Image parallax animation
+      const imgContainer = document.querySelector(".about-img-parallax");
+      if (imgContainer) {
+        const img = imgContainer.querySelector("img");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { y: "-10%", scale: 1.1 },
+            {
+              y: "10%",
+              scale: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: imgContainer,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
+        }
+      }
+
       const counters = gsap.utils.toArray<HTMLElement>(".stat-number");
 
       counters.forEach((el) => {
@@ -95,7 +118,7 @@ export default function About() {
           </div>
 
           {/* Right Image Container */}
-          <div className="reveal col-span-12 md:col-span-6 relative aspect-[16/10] md:aspect-[4/3] rounded-sm overflow-hidden shadow-lg bg-neutral-100">
+          <div className="reveal about-img-parallax col-span-12 md:col-span-6 relative aspect-[16/10] md:aspect-[4/3] rounded-sm overflow-hidden shadow-lg bg-neutral-100">
             <Image
               src="/images/BeyondStructure.jpg"
               alt="Kirant Hotel Welcome"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat, IBM_Plex_Mono } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable} ${plexMono.variable}`}>
       <body className="bg-offwhite text-charcoal font-body antialiased overflow-x-hidden">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

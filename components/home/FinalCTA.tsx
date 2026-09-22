@@ -51,12 +51,17 @@ export default function FinalCTA() {
           Have an idea, opportunity or project in mind?
         </p>
 
-        <a
-          href="#hero"
-          className="reveal inline-flex items-center gap-3.5 border border-offwhite px-8 py-[18px] mt-10 font-mono text-[13px] tracking-wide2 transition-colors duration-300 hover:bg-offwhite hover:text-green"
-        >
-          CONTACT US <span>→</span>
-        </a>
+         <a
+            href=""
+            className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
+            mt-7 text-black
+            bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
+            font-mono text-xs font-medium tracking-wider 
+            uppercase shadow-md 
+            transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            <span>CONTACT US</span>
+          </a>
       </div>
     </section>
   );
