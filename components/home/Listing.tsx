@@ -42,21 +42,21 @@ export default function Listing() {
       title: "Hillside Modern Villa",
       location: "HOLLYWOOD HILLS, CA",
       year: "2024",
-      specs: "4 BEDS / 5.5 BATHS",
+      specs: "$200k",
     },
     {
       src: "/images/house2.jpg",
       title: "Canopy Edge Residence",
       location: "ASPEN, CO",
       year: "2023",
-      specs: "6 BEDS / 7 BATHS",
+      specs: "$100k",
     },
     {
       src: "/images/house3.jpg",
       title: "Heritage Bay Estate",
       location: "MALIBU, CA",
       year: "2024",
-      specs: "5 BEDS / 6 BATHS",
+      specs: "$300k",
     },
   ];
 
@@ -64,7 +64,7 @@ export default function Listing() {
     <section
       ref={sectionRef}
       id="story"
-      className="bg-primary py-24 overflow-hidden"
+      className="bg-[#163e2f] pt-24 overflow-hidden"
     >
       <div className="max-w-[1500px] w-full mx-auto px-[6vw]">
         {/* Header & Text Content */}
@@ -73,10 +73,8 @@ export default function Listing() {
           className="grid grid-cols-12 gap-6 items-end mb-16"
         >
           <div className="col-span-12 lg:col-span-7">
-            <span className="font-mono text-xs tracking-widest text-[#d4af37] uppercase font-bold block mb-3">
-              FEATURED PORTFOLIO
-            </span>
-            <h2 className="font-display font-extrabold text-charcoal leading-[1.02] text-[clamp(32px,4.5vw,58px)]">
+            <h2 className="font-display font-medium text-[#dca734] leading-[1.02]
+            text-[clamp(30px,4vw,50px)]">
               WE THINK BEYOND <span className="text-primary">THE BUILDING.</span>
             </h2>
           </div>
@@ -87,10 +85,11 @@ export default function Listing() {
           {storyHouses.map((house, idx) => (
             <article
               key={idx}
-              className="flex flex-col bg-white overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-shadow duration-300"
+              className="flex flex-col text-black bg-white overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Frame */}
-              <div className="relative aspect-[4/3] w-full bg-neutral-100 overflow-hidden">
+              <div className="relative aspect-[4/3]
+               bg-neutral-100 overflow-hidden">
                 <Image
                   src={house.src}
                   alt={house.title}
@@ -108,10 +107,10 @@ export default function Listing() {
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-charcoal/60 uppercase tracking-wider mb-2">
                     <span>{house.location}</span>
-                    <span className="text-[#d4af37] font-semibold">{house.specs}</span>
+                    <span className="text-black font-semibold">{house.specs}</span>
                   </div>
 
-                  <h3 className="font-display font-bold text-charcoal text-xl leading-snug">
+                  <h3 className="font-display font-bold text-[#163e2f] text-xl leading-snug">
                     {house.title}
                   </h3>
                 </div>

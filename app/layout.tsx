@@ -27,6 +27,13 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "SATORI AEC — Building for Generations",
   description: "SATORI AEC — premium architecture, engineering and real estate.",
+  icons: {
+    icon: [
+      { url: "/logo/satori_fav.png", type: "image/png" },
+    ],
+    shortcut: "/logo/satori_fav.png",
+    apple: "/logo/satori_fav.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

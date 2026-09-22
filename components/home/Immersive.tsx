@@ -149,16 +149,18 @@ export default function Immersive() {
       {/* Typography Content */}
       <div className="relative z-10 px-[6vw] pb-[10vh] max-w-[1500px] w-full mx-auto">
 
-        <h2 className="text-offwhite font-display font-extrabold text-[clamp(46px,9.5vw,140px)] leading-[0.9] tracking-tight flex flex-col perspective-1000">
+        <h2 className="text-offwhite font-display font-medium 
+        text-[clamp(38px,8.5vw,120px)] leading-[0.9] tracking-tight
+         flex flex-col perspective-1000">
           <span
             ref={line1Ref}
-            className="inline-block will-change-transform opacity-0 text-[#d4af37]"
+            className="inline-block will-change-transform opacity-0 text-white"
           >
             BEYOND
           </span>
           <span
             ref={line2Ref}
-            className="inline-block will-change-transform opacity-0 text-[#d4af37]"
+            className="inline-block will-change-transform opacity-0 text-white"
           >
             THE STRUCTURE.
           </span>
