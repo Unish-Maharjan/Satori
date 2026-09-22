@@ -3,69 +3,129 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 
+const TOTAL_FRAMES = 242;
+
 export default function Immersive() {
   const rootRef = useRef<HTMLElement | null>(null);
-  const bgRef = useRef<HTMLDivElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const tagRef = useRef<HTMLDivElement | null>(null);
   const line1Ref = useRef<HTMLSpanElement | null>(null);
   const line2Ref = useRef<HTMLSpanElement | null>(null);
-  const descRef = useRef<HTMLParagraphElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!rootRef.current) return;
+    const canvas = canvasRef.current;
+    const root = rootRef.current;
+    if (!canvas || !root) return;
 
-    if (reduceMotion) {
-      if (line1Ref.current) line1Ref.current.style.opacity = "1";
-      if (line2Ref.current) line2Ref.current.style.opacity = "1";
-      return;
+    const ctx2d = canvas.getContext("2d");
+    if (!ctx2d) return;
+
+    // Preload image frame sequence array
+    const images: HTMLImageElement[] = [];
+    const frameObj = { frame: 1 };
+
+    for (let i = 1; i <= TOTAL_FRAMES; i++) {
+      const img = new Image();
+      img.src = `/frames/${i}.jpg`;
+      images.push(img);
     }
+
+    const renderFrame = () => {
+      const currentFrameIndex = Math.min(
+        TOTAL_FRAMES - 1,
+        Math.max(0, Math.round(frameObj.frame) - 1)
+      );
+      const img = images[currentFrameIndex];
+      if (img && img.complete) {
+        const hRatio = canvas.width / img.width;
+        const vRatio = canvas.height / img.height;
+        const ratio = Math.max(hRatio, vRatio);
+        const centerShiftX = (canvas.width - img.width * ratio) / 2;
+        const centerShiftY = (canvas.height - img.height * ratio) / 2;
+
+        ctx2d.clearRect(0, 0, canvas.width, canvas.height);
+        ctx2d.drawImage(
+          img,
+          0,
+          0,
+          img.width,
+          img.height,
+          centerShiftX,
+          centerShiftY,
+          img.width * ratio,
+          img.height * ratio
+        );
+      }
+    };
+
+    const handleResize = () => {
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        renderFrame();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    if (images[0]) {
+      images[0].onload = renderFrame;
+    }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: rootRef.current,
+          trigger: root,
           start: "top top",
-          end: "+=160%",
+          end: "+=200%",
           pin: true,
-          scrub: 1,
+          scrub: 0.8,
           anticipatePin: 1,
         },
       });
 
-      // 1. Zoom in background image smoothly
-      if (bgRef.current) {
-        tl.fromTo(
-          bgRef.current,
-          { scale: 1 },
-          { scale: 1.25, ease: "power2.inOut", duration: 1 }
-        );
-      }
+      // 1. Scrub canvas frame sequence
+      tl.to(
+        frameObj,
+        {
+          frame: TOTAL_FRAMES,
+          snap: "frame",
+          ease: "none",
+          onUpdate: renderFrame,
+        },
+        0
+      );
 
-      // slightly darken overlay during zoom for contrast
+      // Darken overlay as user scrolls
       if (overlayRef.current) {
         tl.to(
           overlayRef.current,
-          { opacity: 0.75, ease: "power1.inOut", duration: 0.5 },
-          "<"
+          { opacity: 0.8, ease: "power1.inOut" },
+          0
         );
       }
 
-      // 2. Reveal Tag -> Lines -> Subtext
-
-      const lines = [line1Ref.current, line2Ref.current].filter(Boolean);
-      if (lines.length > 0) {
-        tl.fromTo(
-          lines,
-          { y: 60, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.3, ease: "power3.out", duration: 0.8 },
-          ">-0.2"
-        );
+      // 2. Reveal text lines smoothly near end of frame sequence
+      if (!reduceMotion) {
+        const lines = [line1Ref.current, line2Ref.current].filter(Boolean);
+        if (lines.length > 0) {
+          tl.fromTo(
+            lines,
+            { y: 60, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.2, ease: "power3.out", duration: 0.6 }
+          );
+        }
       }
-    }, rootRef);
+    }, root);
 
-    return () => ctx.revert();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -74,34 +134,25 @@ export default function Immersive() {
       id="beyond"
       className="relative h-screen overflow-hidden flex items-end bg-neutral-950"
     >
-      {/* Background Image Container */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 bg-cover bg-center will-change-transform"
-        style={{
-          backgroundImage: `url('/images/BeyondStructure.jpg')`,
-        }}
+      {/* HTML5 Canvas Frame Sequence Background */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Dark Overlay for High Contrast */}
+      {/* Dark Overlay for Contrast */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none opacity-60"
+        className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none opacity-40"
       />
 
       {/* Typography Content */}
       <div className="relative z-10 px-[6vw] pb-[10vh] max-w-[1500px] w-full mx-auto">
-        <div
-          ref={tagRef}
-          className="font-mono text-xs tracking-widest text-[#d4af37] uppercase font-bold mb-4 opacity-0"
-        >
-          CONCEPT & VISION
-        </div>
 
         <h2 className="text-offwhite font-display font-extrabold text-[clamp(46px,9.5vw,140px)] leading-[0.9] tracking-tight flex flex-col perspective-1000">
           <span
             ref={line1Ref}
-            className="inline-block will-change-transform opacity-0 text-offwhite"
+            className="inline-block will-change-transform opacity-0 text-[#d4af37]"
           >
             BEYOND
           </span>
@@ -112,13 +163,6 @@ export default function Immersive() {
             THE STRUCTURE.
           </span>
         </h2>
-
-        <p
-          ref={descRef}
-          className="mt-6 text-[18px] text-offwhite/80 max-w-[48ch] leading-relaxed opacity-0"
-        >
-          Designing spaces that transcend raw materials — creating timeless environments where human experience and architectural form unite.
-        </p>
       </div>
     </section>
   );

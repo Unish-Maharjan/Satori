@@ -148,9 +148,9 @@ export default function Hero() {
             scrollTrigger: {
               trigger: openingSectionRef.current,
               start: "top top",
-              end: "+=150%", // Pins section while scrolling words
+              end: "+=120%", 
               pin: true,
-              scrub: 0.8,
+              scrub: 0.3,
               anticipatePin: 1,
             },
           });
@@ -166,7 +166,7 @@ export default function Hero() {
               opacity: 1,
               y: 0,
               rotateX: 0,
-              stagger: 0.1,
+              stagger: 1,
               ease: "power2.out",
             }
           );
@@ -236,10 +236,10 @@ export default function Hero() {
       <section
         ref={openingSectionRef}
         id="opening"
-        className="bg-offwhite min-h-screen flex items-center justify-center py-16 overflow-hidden"
+        className="bg-offwhite min-h-screen flex items-center justify-center py-16 overflow-hidden text-center"
       >
-        <div className="max-w-[1500px] w-full mx-auto px-[6vw] grid grid-cols-12 gap-6 items-start">
-          <h2 className="col-span-12 md:col-start-2 md:col-span-10 font-display font-bold text-black leading-[0.98] text-[clamp(38px,7vw,104px)] mt-4 md:mt-0 flex flex-wrap gap-x-[0.28em] perspective-1000">
+        <div className="max-w-[1200px] w-full mx-auto px-[6vw] flex flex-col items-center justify-center">
+          <h2 className="font-display font-bold text-primary leading-[0.98] text-[clamp(38px,7vw,104px)] flex flex-wrap justify-center gap-x-[0.28em] perspective-1000">
             {headingText.split(" ").map((word, i) => (
               <span key={i} className="word-item inline-block will-change-transform">
                 {word}
@@ -247,8 +247,8 @@ export default function Hero() {
             ))}
           </h2>
 
-          <div className="col-span-12 md:col-start-6 md:col-span-7 mt-6 md:mt-10 max-w-[52ch]">
-            <p className="text-[19px] leading-relaxed text-charcoal/80 flex flex-wrap gap-x-[0.25em] perspective-1000">
+          <div className="mt-8 md:mt-12 max-w-[52ch] text-center">
+            <p className="text-[19px] leading-relaxed text-charcoal/80 flex flex-wrap justify-center gap-x-[0.25em] perspective-1000">
               {paragraphText.split(" ").map((word, i) => (
                 <span key={i} className="word-item inline-block will-change-transform">
                   {word}

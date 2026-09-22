@@ -64,7 +64,7 @@ export default function Listing() {
     <section
       ref={sectionRef}
       id="story"
-      className="bg-offwhite py-24 overflow-hidden"
+      className="bg-primary py-24 overflow-hidden"
     >
       <div className="max-w-[1500px] w-full mx-auto px-[6vw]">
         {/* Header & Text Content */}
@@ -80,12 +80,6 @@ export default function Listing() {
               WE THINK BEYOND <span className="text-primary">THE BUILDING.</span>
             </h2>
           </div>
-          <div className="col-span-12 lg:col-span-5">
-            <p className="text-[17px] leading-relaxed text-charcoal/80">
-              A structure is the visible part of a longer story — the land it sits on,
-              the life it enables, and the enduring value it holds for generations to come.
-            </p>
-          </div>
         </div>
 
         {/* 3 House Showcase Cards - Clean Human-Designed Architecture Grid */}
@@ -93,7 +87,7 @@ export default function Listing() {
           {storyHouses.map((house, idx) => (
             <article
               key={idx}
-              className="flex flex-col bg-white rounded-xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-shadow duration-300"
+              className="flex flex-col bg-white overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Frame */}
               <div className="relative aspect-[4/3] w-full bg-neutral-100 overflow-hidden">
@@ -123,8 +117,12 @@ export default function Listing() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-mono text-charcoal/70">
-                  <span>EXPLORE PROJECT</span>
-                  <span className="text-sm font-bold text-primary">→</span>
+                  <a
+              href="#about"
+              className="inline-flex items-center justify-center px-4 py-2 bg-[#1e523e] text-white
+               font-medium text-sm rounded-sm hover:bg-[#163e2f] transition-colors">
+              Explore Project
+            </a>
                 </div>
               </div>
             </article>

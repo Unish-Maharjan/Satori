@@ -6,6 +6,20 @@ html {
   scroll-behavior: smooth;
 }
 
+body, p, span, li, a {
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+:root{
+   --color-primary:#1e523e;
+  --color-secondary:#e6a030;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

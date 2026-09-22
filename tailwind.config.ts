@@ -16,8 +16,9 @@ const config: Config = {
         "line-dark": "rgba(23,24,26,0.14)",
       },
       fontFamily: {
-        display: ["var(--font-archivo)", "sans-serif"],
-        body: ["var(--font-archivo)", "sans-serif"],
+        display: ["var(--font-montserrat)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
         mono: ["var(--font-plex-mono)", "monospace"],
       },
       letterSpacing: {

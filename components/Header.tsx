@@ -4,16 +4,15 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const NAV = [
-  { label: "ABOUT", href: "#opening" },
-  { label: "SERVICES", href: "#philosophy" },
-  { label: "APPROACH", href: "#geo-moment" },
-  { label: "LOCATIONS", href: "#journey" },
-  { label: "INSIGHTS", href: "#editorial" },
+  { label: "ABOUT", href: "#vision" },
+  { label: "VISION", href: "#beyond" },
+  { label: "PORTFOLIO", href: "#story" },
+  { label: "CONTACT", href: "#final-cta" },
 ];
 
 export default function Header() {
   const [solid, setSolid] = useState(false);
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -22,13 +21,13 @@ export default function Header() {
     const onScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Solid background after scrolling past 150px
-      setSolid(currentScrollY > 150);
+      // Solid background after scrolling past 60px
+      setSolid(currentScrollY > 60);
 
-      // Hide header when at the top of page (scrollY <= 50) or scrolling down
-      // Reveal header only when scrolled down and scrolling UP
+      // Header is visible at top of page (currentScrollY <= 50)
+      // Hides when scrolling down beyond 100px, shows when scrolling up
       if (currentScrollY <= 50) {
-        setHidden(true);
+        setHidden(false);
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setHidden(true);
       } else {
@@ -62,22 +61,22 @@ export default function Header() {
             <Image src="/logo/Goldenlogo.png" width={100} height={100} alt="Logo" />
           </a>
 
-          <nav className="hidden md:flex gap-9">
+          <nav className="hidden md:flex gap-10 items-center">
             {NAV.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative pb-1 text-offwhite font-mono text-xs tracking-wide2"
+                className="group relative py-1 text-offwhite font-mono text-[11px] font-semibold tracking-widest transition-colors duration-300 hover:text-secondary"
               >
                 {item.label}
-                <span className="absolute left-0 bottom-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#d4af37] transition-all duration-300 ease-out group-hover:w-full shadow-[0_0_8px_#d4af37]" />
               </a>
             ))}
           </nav>
 
           <a
             href="#final-cta"
-            className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
+            className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
             font-mono text-xs font-medium tracking-wider 
             uppercase shadow-md 
             transition-all duration-300 hover:scale-105 active:scale-95"

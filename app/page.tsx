@@ -12,10 +12,10 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <Mega />
-      <Immersive />
       <About/>
+      <Immersive />  
       <Listing />
+      <Mega/>
       <FinalCTA />
       <Footer />
     </main>
