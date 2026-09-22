@@ -26,8 +26,6 @@ export default function Header() {
       // Solid background after scrolling past 60px
       setSolid(currentScrollY > 60);
 
-      // Header is visible at top of page (currentScrollY <= 50)
-      // Hides when scrolling down beyond 100px, shows when scrolling up
       if (currentScrollY <= 50) {
         setHidden(false);
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -51,12 +49,12 @@ export default function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 transform ${
           hidden ? "-translate-y-full" : "translate-y-0"
-        } ${solid ? "bg-white shadow-md" : "bg-transparent"}`}
+        } ${solid ? "bg-[#163e2f] shadow-md" : "bg-transparent"}`}
         style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
       >
         <div
           className={`flex items-center justify-between px-[6vw] border-b transition-all duration-300 ${
-            solid ? " border-black/5" : "border-transparent"
+            solid ? "border-white/10" : "border-transparent"
           }`}
         >
           <a href="#hero" className="flex items-center gap-3">
@@ -68,14 +66,13 @@ export default function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                className={`group relative py-1 font-display text-[11px] font-semibold tracking-widest
-                   transition-colors duration-300 ${
-                  solid ? "text-charcoal hover:text-primary" : "text-offwhite hover:text-secondary"
+                className={`group relative py-1 font-display text-[11px] font-semibold tracking-widest transition-colors duration-300 ${
+                  solid ? "text-white hover:text-[#dca734]" : "text-offwhite hover:text-secondary"
                 }`}
               >
                 {item.label}
                 <span className={`absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-300 ease-out group-hover:w-full ${
-                  solid ? "bg-primary" : "bg-[#d4af37] shadow-[0_0_8px_#d4af37]"
+                  solid ? "bg-[#dca734]" : "bg-[#d4af37] shadow-[0_0_8px_#d4af37]"
                 }`} />
               </a>
             ))}
@@ -83,11 +80,17 @@ export default function Header() {
 
        
 
-         <Button
-                size="sm"
-              >
-                Contact us
-              </Button>
+          <a
+            href=""
+            className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
+            mt-2 text-black
+            bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
+            font-display text-xs font-semibold tracking-wider 
+            uppercase shadow-md 
+            transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            <span>CONTACT US</span>
+          </a>
         </div>
       </header>
     </>
