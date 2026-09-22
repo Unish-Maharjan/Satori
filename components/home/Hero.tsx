@@ -122,13 +122,14 @@ export default function Hero() {
         >
           <div className="w-full justify-center items-center">
           {/* Main Title */}
-          <h1 className="font-display font-medium text-offwhite text-[clamp(32px,4.5vw,64px)] leading-[1.08] tracking-tight mb-4 max-w-[850px]">
-            WELCOME TO <span className="text-secondary">SATORI AEC</span>
+          <h1 className="font-display font-medium text-offwhite text-[clamp(32px,4.5vw,64px)] leading-[1.08] tracking-tight
+           mb-4 w-[1000px] -ml-20">
+            WELCOME TO <span className="text-white">SATORI AEC</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-white mx-auto font-body font-normal text-[clamp(14px,1.2vw,18px)] max-w-[44ch] leading-relaxed mb-8">
-            Market research, architecture, and portfolio strategy so every property you build or buy is an enduring decision, not a guess.
+         Planning, design, and construction expertise to turn every project into a lasting structure, not just another build.
           </p>
 
           {/* Call to Action Button */}

@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="space-y-4 md:col-span-1">
             <Image src="/logo/Goldenlogo.png" alt="Satori AEC Logo" width={180} height={70}/>
             <p className="text-sm text-[#8fa89b] max-w-sm mt-4 leading-relaxed font-light">
-              Engineering future-ready built environments with unyielding precision, architectural excellence, and sustainable vision.
+              Building future-ready spaces through uncompromising precision, architectural excellence, and a vision built to last.
             </p>
           </div>
 

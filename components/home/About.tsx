@@ -98,18 +98,15 @@ export default function About() {
           flex flex-col items-start font-display pr-0 md:pr-6">
             <h2 className="font-display text-[#dca734] text-[clamp(32px,4vw,56px)]
              leading-[1.1] font-medium tracking-tight mb-6">
-              A LEGENDARY WELCOME EVERY TIME
+              BUILT TO BECOME A LEGACY
             </h2>
 
             <p className="text-white text-[16px] leading-relaxed mb-6 max-w-[54ch]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptatum, facilis ad officia laudantium, cumque magnam atque, porro consequatur animi dolores iste temporibus. Ipsa eligendi placeat nostrum, fugiat reprehenderit optio aperiam nihil, asperiores rem voluptatum voluptatem
+             We believe great construction is more than putting materials together. It is about creating spaces with purpose, precision, and character—spaces designed to stand the test of time.
             </p>
 
             <p className="text-white text-[16px] leading-relaxed mb-8 max-w-[54ch]">
-              From our architectural spaces that honor local craft to our
-              meticulously designed culinary and wellness journeys, we invite
-              you to immerse yourself in a legacy of warmth and unforgettable
-              elegance.
+              From thoughtful planning and structural excellence to refined craftsmanship and meticulous execution, we bring every detail together to create buildings that feel as strong as they look. Every project is approached with care, driven by quality, and built with a lasting vision.
             </p>
 
             <a

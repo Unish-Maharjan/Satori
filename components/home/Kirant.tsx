@@ -157,7 +157,7 @@ const Kirant = ({
                      will-change-transform mt-2 sm:mt-3 px-4"
                 >
                     <h2 className="text-[11vw] sm:text-[8vw] text-[#dca734] md:text-[6.5vw] xl:text-[5vw] \
-                    font-normal font-display text-primary uppercase tracking-[0.13em] leading-none">
+                    font-normal font-display uppercase tracking-[0.13em] leading-none">
                         {bottomText}
                     </h2>
                 </div>

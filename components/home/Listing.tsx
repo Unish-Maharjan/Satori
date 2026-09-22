@@ -75,7 +75,7 @@ export default function Listing() {
           <div className="col-span-12 lg:col-span-7">
             <h2 className="font-display font-medium text-[#dca734] leading-[1.02]
             text-[clamp(30px,4vw,50px)]">
-              WE THINK BEYOND <span className="text-primary">THE BUILDING.</span>
+              WE THINK BEYOND <span className="">THE BUILDING.</span>
             </h2>
           </div>
         </div>
