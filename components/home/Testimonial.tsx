@@ -105,7 +105,7 @@ export default function Testimonial() {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 px-[5vw] bg-[#163e2f] text-neutral-800">
+    <section ref={sectionRef} className="py-20 px-[5vw] bg-primary text-neutral-800">
       <div className="max-w-[1400px] mx-auto">
         {/* Header Title & Carousel Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
@@ -129,14 +129,16 @@ export default function Testimonial() {
             <button
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-11 h-11  border border-neutral-400/80 bg-white flex items-center justify-center text-neutral-800 hover:bg-neutral-900 hover:text-white transition-all duration-300 shadow-sm active:scale-95"
+              className="w-11 h-11  border border-neutral-400/80 bg-third flex items-center justify-center
+               text-neutral-800 hover:bg-secondary hover:text-white transition-all duration-300 shadow-sm active:scale-95"
             >
               ←
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-11 h-11 border border-neutral-400/80 bg-white flex items-center justify-center text-neutral-800 hover:bg-neutral-900 hover:text-white transition-all duration-300 shadow-sm active:scale-95"
+              className="w-11 h-11 border border-neutral-400/80 bg-third flex items-center justify-center text-neutral-800
+               hover:bg-secondary hover:text-white transition-all duration-300 shadow-sm active:scale-95"
             >
               →
             </button>
@@ -157,7 +159,7 @@ export default function Testimonial() {
             {testimonialsList.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-[#f4f4f3] border border-neutral-300/80 p-6 md:p-8 flex flex-col justify-between min-h-[280px] shadow-sm hover:shadow-md transition-shadow shrink-0 w-[88vw] sm:w-[45vw] lg:w-[31vw]"
+                className="bg-third border border-neutral-300/80 p-6 md:p-8 flex flex-col justify-between min-h-[280px] shadow-sm hover:shadow-md transition-shadow shrink-0 w-[88vw] sm:w-[45vw] lg:w-[31vw]"
               >
                 <div>
                   {/* Author Info */}

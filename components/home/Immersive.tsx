@@ -154,13 +154,13 @@ export default function Immersive() {
          flex flex-col perspective-1000">
           <span
             ref={line1Ref}
-            className="inline-block will-change-transform opacity-0 text-white"
+            className="inline-block will-change-transform opacity-0 text-third"
           >
             BEYOND
           </span>
           <span
             ref={line2Ref}
-            className="inline-block will-change-transform opacity-0 text-white"
+            className="inline-block will-change-transform opacity-0 text-third"
           >
             THE STRUCTURE.
           </span>

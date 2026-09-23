@@ -64,7 +64,7 @@ export default function Listing() {
     <section
       ref={sectionRef}
       id="story"
-      className="bg-[#163e2f] pt-24 overflow-hidden"
+      className="bg-primary pt-24 -mt-1 overflow-hidden"
     >
       <div className="max-w-[1500px] w-full mx-auto px-[6vw]">
         {/* Header & Text Content */}
@@ -85,7 +85,7 @@ export default function Listing() {
           {storyHouses.map((house, idx) => (
             <article
               key={idx}
-              className="flex flex-col text-black bg-white overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+              className="flex flex-col text-black bg-third overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Frame */}
               <div className="relative aspect-[4/3]

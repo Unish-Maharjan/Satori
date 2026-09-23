@@ -1,20 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/lib/useReveal";
 import Image from "next/image";
 
 export default function FinalCTA() {
   const revealRef = useReveal<HTMLElement>();
-  
-
 
   return (
     <section
       ref={revealRef}
       id="final-cta"
-      className="relative bg-[#163e2f] text-offwhite min-h-screen flex 
+      className="relative bg-primary text-offwhite min-h-screen flex 
       flex-col justify-center overflow-hidden"
     >
       {/* Background Satori fav logo (transparent behind text) */}
@@ -30,21 +26,21 @@ export default function FinalCTA() {
         />
       </div>
 
-      <div className="relative z-[2] max-w-[1500px] mx-auto px-[6vw] text-center">
-        <h2 className="reveal text-[#e59f30] font-display font-medium text-[clamp(44px,9vw,140px)] leading-[0.95] tracking-tight">
+      <div className="relative z-2 max-w-375 mx-auto px-[6vw] text-center">
+        <h2 className="reveal text-secondary font-display font-medium text-[clamp(44px,9vw,140px)] leading-[0.95] tracking-tight">
           LET&apos;S BUILD
           <br />
           WHAT&apos;S NEXT.
         </h2>
 
-        <p className="reveal mt-8 text-lg text-offwhite/80">
+        <p className="reveal mt-8 text-lg text-third">
           Have an idea, opportunity or project in mind?
         </p>
 
          <a
             href=""
             className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
-            mt-7 text-black
+            mt-7
             bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
             font-display text-xs font-medium tracking-wider 
             uppercase shadow-md 

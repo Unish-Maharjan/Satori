@@ -115,7 +115,7 @@ const Kirant = ({
             <div
                 ref={stickyRef}
                 className="sticky top-0 h-screen w-full flex flex-col 
-                items-center justify-center overflow-hidden bg-[#163e2f] select-none"
+                items-center justify-center overflow-hidden bg-primary select-none"
             >
                 {/* Top Text */}
                 <div

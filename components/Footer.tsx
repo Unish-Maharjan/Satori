@@ -4,9 +4,10 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#163e2f] text-[#F7F7F4] border-t border-[#F4BF67]/20 pt-16 pb-12">
+    <footer className="relative z-20 bg-primary text-[#F7F7F4] border-t border-[#F4BF67]/20 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-[#F4BF67]/15">
+        
           {/* Logo & Tagline Column */}
           <div className="space-y-4 md:col-span-1">
             <Image src="/logo/Goldenlogo.png" alt="Satori AEC Logo" width={180} height={70}/>

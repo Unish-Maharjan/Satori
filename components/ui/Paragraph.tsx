@@ -10,7 +10,7 @@ export default function Paragraph({
   className = "",
 }: ParagraphProps) {
   return (
-    <p className={`font-display leading-relaxed ${className}`}>
+    <p className={` leading-relaxed ${className}`}>
       {children}
     </p>
   );

@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Button from "./ui/Button";
+import Link from "next/link";
 
 const NAV = [
-  { label: "HOME", href: "#vision" },
-  { label: "ABOUT", href: "#vision" },
-  { label: "VISION", href: "#beyond" },
-  { label: "PORTFOLIO", href: "#story" },
+  { label: "HOME", href: "/" },
+  { label: "ABOUT", href: "/about" },
+  { label: "VISION", href: "/vision" },
+  { label: "PORTFOLIO", href: "/" },  
   { label: "CONTACT", href: "#final-cta" },
 ];
 
@@ -70,18 +70,18 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex gap-8 lg:gap-10 items-center">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className={`group relative py-1 font-display text-[11px] font-semibold tracking-widest transition-colors duration-300 ${
-                  solid ? "text-white hover:text-[#dca734]" : "text-offwhite hover:text-secondary"
+                  solid ? "text-white hover:text-secondary" : "text-third hover:text-secondary"
                 }`}
               >
                 {item.label}
-                <span className={`absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-300 ease-out group-hover:w-full ${
-                  solid ? "bg-[#dca734]" : "bg-[#d4af37] shadow-[0_0_8px_#d4af37]"
+                <span className={`absolute left-0 bottom-0 h-0.5 w-0 transition-all duration-300 ease-out group-hover:w-full ${
+                  solid ? "bg-secondary" : "bg-secondary"
                 }`} />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -90,7 +90,7 @@ export default function Header() {
             href="#final-cta"
             className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
             mt-2
-            bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-black
+            bg-secondary text-black
             font-display text-xs font-semibold tracking-wider 
             uppercase shadow-md 
             transition-all duration-300 hover:scale-105 active:scale-95"
@@ -120,16 +120,16 @@ export default function Header() {
         {menuOpen && (
           <div className="md:hidden bg-primary/95 backdrop-blur-md border-b border-white/10 px-6 py-6 flex flex-col gap-5">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
                 className="font-display text-sm font-semibold tracking-widest text-white hover:text-secondary transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a
+            <Link
               href="#final-cta"
               onClick={() => setMenuOpen(false)}
               className="inline-flex items-center justify-center px-5 py-3 
@@ -138,7 +138,7 @@ export default function Header() {
               uppercase shadow-md text-center mt-2"
             >
               CONTACT US
-            </a>
+            </Link>
           </div>
         )}
       </header>

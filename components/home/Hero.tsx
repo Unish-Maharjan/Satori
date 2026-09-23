@@ -98,7 +98,7 @@ export default function Hero() {
       {/* Primary Hero Section */}
       <section
         id="hero"
-        className="relative min-h-screen min-h-[100svh] w-full flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 bg-neutral-900"
+        className="relative min-h-[100svh] w-full flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 bg-neutral-900"
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -118,12 +118,14 @@ export default function Hero() {
         {/* Hero Content Box */}
         <div
           ref={heroContentRef}
-          className="relative z-10 max-w-[1000px] w-full mx-auto px-6 sm:px-[6vw] text-center flex flex-col items-center my-auto"
+          className="relative z-10 max-w-250 w-full mx-auto px-6 sm:px-[6vw] text-center flex flex-col items-center my-auto"
         >
           <div className="w-full flex flex-col items-center justify-center">
+
             {/* Main Title */}
-            <h1 className="font-display font-medium text-offwhite text-[clamp(28px,4.5vw,64px)] leading-[1.1] tracking-tight mb-4 text-center w-full">
-              WELCOME TO <span className="text-white">SATORI AEC</span>
+            <h1 className="font-display font-medium text-white text-[clamp(28px,4.5vw,64px)] 
+            leading-[1.1] tracking-tight mb-4 text-center w-full whitespace-nowrap">
+              WELCOME TO <span className="text-offwhite">SATORI AEC</span>
             </h1>
 
             {/* Subtitle */}
@@ -138,33 +140,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-      {/* Opening Section Pinned with Scrubbed Staggered Word Reveal
-      <section
-        ref={openingSectionRef}
-        id="opening"
-        className="bg-offwhite min-h-screen flex items-center justify-center py-16 overflow-hidden text-center"
-      >
-        <div className="max-w-[1200px] w-full mx-auto px-[6vw] flex flex-col items-center justify-center">
-          <h2 className="font-display font-bold text-primary leading-[0.98] text-[clamp(38px,7vw,104px)] flex flex-wrap justify-center gap-x-[0.28em] perspective-1000">
-            {headingText.split(" ").map((word, i) => (
-              <span key={i} className="word-item inline-block will-change-transform">
-                {word}
-              </span>
-            ))}
-          </h2>
-
-          <div className="mt-8 md:mt-12 max-w-[52ch] text-center">
-            <p className="text-[19px] leading-relaxed text-charcoal/80 flex flex-wrap justify-center gap-x-[0.25em] perspective-1000">
-              {paragraphText.split(" ").map((word, i) => (
-                <span key={i} className="word-item inline-block will-change-transform">
-                  {word}
-                </span>
-              ))}
-            </p>
-          </div>
-        </div>
-      </section> */}
     </>
   );
 }

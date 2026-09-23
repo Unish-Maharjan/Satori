@@ -1,48 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+  --font-montserrat: "Montserrat";
+  --font-inter: "Inter";
+  --font-plex-mono: "IBM Plex Mono";
+
+  --primary: #03372b;
+  --secondary: #fec774;
+  --third: #ddd9ce;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
-body, p, span, li, a {
+body,
+p,
+span,
+li,
+a {
   font-family: var(--font-inter), "Inter", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-montserrat), "Montserrat", sans-serif;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype-variations");
-  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-:root{
-  --primary:#1e523e;
-  --color-secondary:#e6a030;
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-third: var(--third);
+
+  --font-heading: "Montserrat", serif;
+  --font-primary: "Inter", "inter", system-ui, sans-serif;
+
 }
-
-@theme{
-  
-  --color-primary:var(--primary);
-  --color-secondary:var(--secondary);
-
-
-  --font-Montserrat:"Montserrat",sans-serif;
-  --font-inter:"Inter",sans-serif;
-}
-
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -71,3 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   vector-effect: non-scaling-stroke;
 }
 
+.dot.is-active {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}

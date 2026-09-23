@@ -93,22 +93,27 @@ export default function About() {
     <section ref={ref} id="vision" className="bg-primary py-[15vh]">
 
       <div className="max-w-[1500px] mx-auto px-[6vw]">
+
         {/* Top Grid: Left content, Right Image */}
         <div className="grid grid-cols-12 gap-8 items-center mb-16 md:mb-24">
-          {/* Left Text Column */}
-          <div className="reveal col-span-12 md:col-span-6 
-          flex flex-col items-start font-display pr-0 md:pr-6">
-            <h2 className="font-display text-[#dca734] text-[clamp(32px,4vw,56px)]
-             leading-[1.1] font-medium tracking-tight mb-6">
+
+        {/* Left Text Column */}
+        <div className="reveal col-span-12 md:col-span-6 
+        flex flex-col items-start font-display pr-0 md:pr-6">
+          <h2 className="font-display text-secondary text-[clamp(32px,4vw,56px)]
+            leading-[1.1] font-medium tracking-tight mb-6">
               BUILT TO BECOME A LEGACY
-            </h2>
+          </h2>
 
-            <Paragraph className="text-white text-[16px] leading-relaxed mb-6 max-w-[54ch]">
-             We believe great construction is more than putting materials together. It is about creating spaces with purpose, precision, and character—spaces designed to stand the test of time.
-            </Paragraph>
+          <Paragraph className="text-[#DDD9CE] text-[16px] leading-relaxed mb-6 max-w-[54ch]">
+            We believe great construction is more than putting materials together. It is about creating spaces with purpose, 
+            precision, and character—spaces designed to stand the test of time.
+          </Paragraph>
 
-            <Paragraph className="text-white text-[16px] leading-relaxed mb-8 max-w-[54ch]">
-              From thoughtful planning and structural excellence to refined craftsmanship and meticulous execution, we bring every detail together to create buildings that feel as strong as they look. Every project is approached with care, driven by quality, and built with a lasting vision.
+            <Paragraph className="text-[#DDD9CE] text-[16px] leading-relaxed mb-8 max-w-[54ch]">
+              From thoughtful planning and structural excellence to refined craftsmanship and meticulous execution, 
+              we bring every detail together to create buildings that feel as strong as they look. Every project is 
+              approached with care, driven by quality, and built with a lasting vision.
             </Paragraph>
 
             <a
@@ -126,7 +131,7 @@ export default function About() {
 
           {/* Right Image Container */}
           <div className="reveal about-img-parallax col-span-12 
-          md:col-span-6 relative aspect-[16/10] md:aspect-[4/3] 
+          md:col-span-6 relative aspect-16/10 md:aspect-4/3 
           rounded-sm overflow-hidden shadow-lg bg-neutral-100">
             <Image
               src="/images/about.jpeg"
