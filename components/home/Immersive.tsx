@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 
-const TOTAL_FRAMES = 242;
+const TOTAL_FRAMES = 120;
 
 export default function Immersive() {
   const rootRef = useRef<HTMLElement | null>(null);
@@ -81,9 +81,9 @@ export default function Immersive() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=200%",
+          end: "+=250%",
           pin: true,
-          scrub: 0.8,
+          scrub: 0.5,
           anticipatePin: 1,
         },
       });

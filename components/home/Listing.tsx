@@ -97,7 +97,7 @@ export default function Listing() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
-                <span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded">
+                <span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white font-display text-[11px] px-2.5 py-1 rounded">
                   {house.year}
                 </span>
               </div>
@@ -105,7 +105,7 @@ export default function Listing() {
               {/* Card Body */}
               <div className="p-6 flex flex-col flex-1 justify-between">
                 <div>
-                  <div className="flex items-center justify-between text-xs font-mono text-charcoal/60 uppercase tracking-wider mb-2">
+                  <div className="flex items-center justify-between text-xs font-display text-charcoal/60 uppercase tracking-wider mb-2">
                     <span>{house.location}</span>
                     <span className="text-black font-semibold">{house.specs}</span>
                   </div>
@@ -115,7 +115,7 @@ export default function Listing() {
                   </h3>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-mono text-charcoal/70">
+                <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-xs font-display text-charcoal/70">
                   <a
               href="#about"
               className="inline-flex items-center justify-center px-4 py-2 bg-[#1e523e] text-white

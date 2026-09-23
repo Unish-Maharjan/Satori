@@ -199,8 +199,9 @@ export default function Testimonial() {
 
                 {/* Card Footer: Read More & Google Icon */}
                 <div className="flex items-center justify-between mt-8 pt-2">
-                  <button className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-neutral-800 uppercase hover:text-black">
-                    <span className="text-sm">↳</span> READ MORE
+                  <button className="flex items-center gap-2 text-xs font-display font-bold tracking-widest
+                   text-black uppercase hover:text-secondary">
+                    READ MORE
                   </button>
                   <GoogleGIcon />
                 </div>

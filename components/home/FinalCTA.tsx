@@ -46,7 +46,7 @@ export default function FinalCTA() {
             className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
             mt-7 text-black
             bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
-            font-mono text-xs font-medium tracking-wider 
+            font-display text-xs font-medium tracking-wider 
             uppercase shadow-md 
             transition-all duration-300 hover:scale-105 active:scale-95"
           >

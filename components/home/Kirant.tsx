@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
+import Paragraph from '../ui/Paragraph';
 
 interface KirantProps {
     imageSrc?: string;

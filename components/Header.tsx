@@ -48,20 +48,27 @@ export default function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 transform ${
-          hidden ? "-translate-y-full" : "translate-y-0"
-        } ${solid ? "bg-[#163e2f] shadow-md" : "bg-transparent"}`}
+          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
+        } ${solid || menuOpen ? "bg-primary shadow-md" : "bg-transparent"}`}
         style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
       >
         <div
-          className={`flex items-center justify-between px-[6vw] border-b transition-all duration-300 ${
-            solid ? "border-white/10" : "border-transparent"
+          className={`flex items-center justify-between px-6 md:px-[6vw] py-3 md:py-0 border-b transition-all duration-300 ${
+            solid || menuOpen ? "border-white/10" : "border-transparent"
           }`}
         >
           <a href="#hero" className="flex items-center gap-3">
-            <Image src="/logo/Goldenlogo.png" width={140} height={140} alt="Logo" />
+            <Image
+              src="/logo/Goldenlogo.png"
+              width={140}
+              height={140}
+              alt="Logo"
+              className="w-28 md:w-36 h-auto"
+            />
           </a>
 
-          <nav className="hidden md:flex gap-10 items-center">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex gap-8 lg:gap-10 items-center">
             {NAV.map((item) => (
               <a
                 key={item.label}
@@ -78,20 +85,62 @@ export default function Header() {
             ))}
           </nav>
 
-       
-
+          {/* Desktop Contact Button */}
           <a
-            href=""
+            href="#final-cta"
             className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
-            mt-2 text-black
-            bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
+            mt-2
+            bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-black
             font-display text-xs font-semibold tracking-wider 
             uppercase shadow-md 
             transition-all duration-300 hover:scale-105 active:scale-95"
           >
             <span>CONTACT US</span>
           </a>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden p-2 text-white focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            {menuOpen ? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {menuOpen && (
+          <div className="md:hidden bg-primary/95 backdrop-blur-md border-b border-white/10 px-6 py-6 flex flex-col gap-5">
+            {NAV.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="font-display text-sm font-semibold tracking-widest text-white hover:text-secondary transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#final-cta"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center justify-center px-5 py-3 
+              bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-black
+              font-display text-xs font-semibold tracking-wider 
+              uppercase shadow-md text-center mt-2"
+            >
+              CONTACT US
+            </a>
+          </div>
+        )}
       </header>
     </>
   );

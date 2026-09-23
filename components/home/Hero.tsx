@@ -98,7 +98,7 @@ export default function Hero() {
       {/* Primary Hero Section */}
       <section
         id="hero"
-        className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 bg-neutral-900"
+        className="relative min-h-screen min-h-[100svh] w-full flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 bg-neutral-900"
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -118,24 +118,23 @@ export default function Hero() {
         {/* Hero Content Box */}
         <div
           ref={heroContentRef}
-          className="relative z-10 max-w-[1000px] mx-auto px-[6vw] text-center flex flex-col items-center my-auto"
+          className="relative z-10 max-w-[1000px] w-full mx-auto px-6 sm:px-[6vw] text-center flex flex-col items-center my-auto"
         >
-          <div className="w-full justify-center items-center">
-          {/* Main Title */}
-          <h1 className="font-display font-medium text-offwhite text-[clamp(32px,4.5vw,64px)] leading-[1.08] tracking-tight
-           mb-4 w-[1000px] -ml-20">
-            WELCOME TO <span className="text-white">SATORI AEC</span>
-          </h1>
+          <div className="w-full flex flex-col items-center justify-center">
+            {/* Main Title */}
+            <h1 className="font-display font-medium text-offwhite text-[clamp(28px,4.5vw,64px)] leading-[1.1] tracking-tight mb-4 text-center w-full">
+              WELCOME TO <span className="text-white">SATORI AEC</span>
+            </h1>
 
-          {/* Subtitle */}
-          <p className="text-white mx-auto font-body font-normal text-[clamp(14px,1.2vw,18px)] max-w-[44ch] leading-relaxed mb-8">
-         Planning, design, and construction expertise to turn every project into a lasting structure, not just another build.
-          </p>
+            {/* Subtitle */}
+            <p className="text-white mx-auto font-body font-normal text-[clamp(14px,1.2vw,18px)] max-w-[48ch] leading-relaxed mb-8 px-2">
+              Planning, design, and construction expertise to turn every project into a lasting structure, not just another build.
+            </p>
 
-          {/* Call to Action Button */}
-          <Button size="sm">
-                Book An Appointment
-              </Button>
+            {/* Call to Action Button */}
+            <Button size="sm">
+              Book An Appointment
+            </Button>
           </div>
         </div>
       </section>

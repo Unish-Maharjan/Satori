@@ -5,7 +5,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReveal } from "@/lib/useReveal";
-import Button from "../ui/Button";
+import Paragraph from "../ui/Paragraph";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -40,6 +40,7 @@ export default function About() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+
       // Image parallax animation
       const imgContainer = document.querySelector(".about-img-parallax");
       if (imgContainer) {
@@ -89,7 +90,8 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={ref} id="vision" className="bg-[#163e2f] py-[min(12vh,120px)] font-biwa">
+    <section ref={ref} id="vision" className="bg-primary py-[15vh]">
+
       <div className="max-w-[1500px] mx-auto px-[6vw]">
         {/* Top Grid: Left content, Right Image */}
         <div className="grid grid-cols-12 gap-8 items-center mb-16 md:mb-24">
@@ -101,20 +103,20 @@ export default function About() {
               BUILT TO BECOME A LEGACY
             </h2>
 
-            <p className="text-white text-[16px] leading-relaxed mb-6 max-w-[54ch]">
+            <Paragraph className="text-white text-[16px] leading-relaxed mb-6 max-w-[54ch]">
              We believe great construction is more than putting materials together. It is about creating spaces with purpose, precision, and character—spaces designed to stand the test of time.
-            </p>
+            </Paragraph>
 
-            <p className="text-white text-[16px] leading-relaxed mb-8 max-w-[54ch]">
+            <Paragraph className="text-white text-[16px] leading-relaxed mb-8 max-w-[54ch]">
               From thoughtful planning and structural excellence to refined craftsmanship and meticulous execution, we bring every detail together to create buildings that feel as strong as they look. Every project is approached with care, driven by quality, and built with a lasting vision.
-            </p>
+            </Paragraph>
 
             <a
             href=""
             className="group hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 
-            mt-7 text-black
+            mt-6
             bg-gradient-to-r from-[#d4af37] to-[#e59f30] text-primary
-            font-mono text-xs font-medium tracking-wider 
+            font-display text-xs font-medium tracking-wider 
             uppercase shadow-md 
             transition-all duration-300 hover:scale-105 active:scale-95"
           >
@@ -123,7 +125,9 @@ export default function About() {
           </div>
 
           {/* Right Image Container */}
-          <div className="reveal about-img-parallax col-span-12 md:col-span-6 relative aspect-[16/10] md:aspect-[4/3] rounded-sm overflow-hidden shadow-lg bg-neutral-100">
+          <div className="reveal about-img-parallax col-span-12 
+          md:col-span-6 relative aspect-[16/10] md:aspect-[4/3] 
+          rounded-sm overflow-hidden shadow-lg bg-neutral-100">
             <Image
               src="/images/about.jpeg"
               alt="Kirant Hotel Welcome"
@@ -144,17 +148,17 @@ export default function About() {
               <div>
                 <div className="flex items-baseline gap-2 mb-2">
                   <span
-                    className="stat-number text-[clamp(36px,3.5vw,52px)] font-bold text-[#163e2f] leading-none"
+                    className="stat-number text-[clamp(36px,3.5vw,52px)] font-bold text-primary leading-none"
                     data-value={stat.number}
                   >
                     0
                   </span>
-                  <span className="text-sm font-medium text-[#163e2f]">
+                  <span className="text-sm font-medium text-primary">
                     {stat.label}
                   </span>
                 </div>
               </div>
-              <p className=" text-[#163e2f]/90 leading-normal mt-6">
+              <p className=" text-primary/90 leading-normal mt-6">
                 {stat.subtext}
               </p>
             </div>
